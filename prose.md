@@ -60,6 +60,12 @@ We can see from this most states also have an upward trend, though to varying de
 
 _Code_
 
+Before looking try to explain the trends, we first want to see if there is any signfication variation between BMI distributions of members of different sexes or races. We will use violin plots and regressions for this.
+
+_Code_
+
+There does not appear to be signification variation upon these demographics.
+
 To try and see what might be causing the upward trend, we want to look at the behavior questions over time. To do this we will create a function that takes in a question name, calculates the percentage of students who answered affirmative and return the years and percentages. We can thus graph the percentage of students who drank milk daily, ate vegetables daily, drank soda daily, and who ate breakfast daily.
 
 _Code_
@@ -68,9 +74,7 @@ There appears to be a downward trend in vegetable and milk consumption, but also
 
 ## Developing a Model
 
-We want to develop a linear model predicting BMI from a number of categorical predictor variables. The predictor variables we will use are:
-
-The subset of data that includes the predictor variables and the dependent variable, BMI, is selected from the dataset. We also drop all of the incomplete data entries, accepting the error from using incomplete data.
+We want to develop a linear model predicting BMI from a number of categorical predictor variables. The subset of data that includes the predictor variables and the dependent variable, BMI, is selected from the dataset. We also drop all of the incomplete data entries, accepting the error from using incomplete data.
 
 _Code_
 
@@ -90,7 +94,7 @@ We can go further in visualizing our error with a violin plot of the residuals. 
 
 _Code_
 
-## 10-Fold Cross–Validation
+### 10-Fold Cross–Validation
 
 We want to see if we can further strengthen our model by expanding our training methodology. To do so we will implement a 10–Fold Cross–Validation with our data. A 10–Fold Cross–Validation technique means that we are going to divide the dataset into 10 subsets and run our analysis with each subset as the test data. The results of this are then averaged to find the total accuracy of the model.
 
