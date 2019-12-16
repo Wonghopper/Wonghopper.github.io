@@ -41,7 +41,11 @@ There appears to be an upward trend in BMI over time, but this could be the resu
 
 _Code_
 
-We can see from this most states also have an upward trend, though to varying degrees. 
+We can see from this most states also have an upward trend, though to varying degrees. To illustrate differences in location we can show the mean BMI per state on a map.
+
+_Code_
+
+Let's try and find what may be causing this overall upward trend in BMI: we can look at questions about diet and exercise and see how they changed
 
 ## Developing a Model
 
@@ -52,3 +56,4 @@ _Code_
 _Code_
 
 ## Conclusion
+We found an upward trend in BMI over the years of the survey and we found decreasing trends in question responses such as milk and veggie consumption. In spite of this, we can Though our training model had some accuracy, it appears that these questions alone are not great predictors of a student's BMI.
