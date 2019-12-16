@@ -98,5 +98,9 @@ _Code_
 
 If we want to change our model to use whether an individual exercises 1 or more days per week rather than 7 days a week we can redo the previous models.
 
+_Code_
+
 ## Conclusion
-We found an upward trend in BMI over the years of the survey and we found decreasing trends in question responses such as milk and veggie consumption. In spite of this, we can Though our training model had some accuracy, it appears that these questions alone are not great predictors of a student's BMI.
+
+We found an upward trend in BMI over the years of the survey and we found decreasing trends in question responses such as milk and veggie consumption. In spite of this, it is important to keep in mind that correlation does not imply causation.
+Furthermore, we were able to successfully develop a predictive model for BMI from a number of categorical, predictor variables. However, our model did not have particularly high accuracy. The model made very conservative predictions, resulting in fairly accurate predictions for individuals with average BMI, but a loss of accuracy towards the extremes. This indicates that alone the variables we used are not great predictors of a teenager's BMI. Therefore, further research and study is necessary before we would be comfortable making large generalizations about the effect of specific lifestyle choices on the BMI of a teenager.
