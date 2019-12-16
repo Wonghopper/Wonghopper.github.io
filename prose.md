@@ -1,6 +1,6 @@
 - [ ] ADD THIS TO FINAL PROJECT
 
-# Investigating Weight and Diet in High Schools
+# Investigating Lifestyle Activities and its Impact on BMI in Teenagers
 _Jay Machado and Jeffrey Wong_
 
 ## Background and Motivation
