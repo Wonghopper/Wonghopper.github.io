@@ -1,6 +1,6 @@
 - [ ] ADD THIS TO FINAL PROJECT
 
-# Investigating Lifestyle Activities and its Impact on BMI in Teenagers
+# Investigating Lifestyle and its Impact on BMI of Teenagers
 _Jay Machado and Jeffrey Wong_
 
 ## Background and Motivation
