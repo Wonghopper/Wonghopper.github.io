@@ -7,7 +7,22 @@ _Jay Machado and Jeffrey Wong_
 
 The [Youth Risk Behaviour Survey System](https://www.cdc.gov/healthyyouth/data/yrbs/overview.htm) was created in the 1990s periodically survey schools across the United States and gather information about the health behavior. These surveys change from year to year and are often conducted by different branches and different levels of government. The CDC have attempted to aggregate data from different years and with different questions and publish the data on their website. The combined data is available for surveys on the national level, on the state level, and on the district level.
 
-The survey measures behaviors related to sex, diet, physical activity, drug use, and mental health. We decided we wanted to look at trends in body mass index (BMI) across students using the surveys conducted at a state level over the years of the program. BMI is a calculation based on the weight and height of an individual that gives a general idea if someone is at a healthy weight for their size. While it has its [limitations](https://en.wikipedia.org/wiki/Body_mass_index#Limitations), it is easier to collect that information such as fat percentage. We want to find general trends in BMI values with respect to time, location, and demographics included in the survey, such as race and gender. We focused only on the state datasets because combining other levels might introduce overlapping data.
+The survey measures behaviors related to sex, diet, physical activity, drug use, and mental health. We decided we wanted to look at trends in body mass index (BMI) across students using the surveys conducted at a state level over the years of the program. BMI is a calculation based on the weight and height of an individual that gives a general idea if someone is at a healthy weight for their size. While it has its [limitations](https://en.wikipedia.org/wiki/Body_mass_index#Limitations), it is easier to collect that information such as fat percentage. We want to find general trends in BMI values with respect to time, location, and behaviors in the survey, such as drinking milk or eating breakfast. Our hope is to find which predictors have a greater (if any) affect on BMI. We focused only on the state datasets because combining other levels might introduce overlapping data.
+
+### Background Readings
+
+The WHO calls childhood obesity ["one of the most serious public health challenges of the 21st century"](https://www.who.int/dietphysicalactivity/childhood/en/). The NIH hosts a decent article on [why obesity prevention is better than a cure](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4801195/). The WHO has an article on [why it matters](https://www.who.int/dietphysicalactivity/childhood_consequences/en/). The idea of this project is to be able to more easily identify students with at-risk behavior.
+
+### Tutorial
+
+At the end of this tutorial, you should be able to:
+
+- Import YRBSS data from a csv file
+- Tidy the data to be usable in pandas
+- Plot BMI data with respect to time
+- Run simple regressions to predict BMI over time
+- Calculate and plot behavior prevalence
+- Run regressions to predict BMI based on behavior
 
 ## Preliminary Data Import
 
@@ -17,7 +32,7 @@ After exporting the relevant ones to .csv, the files can by read into Pandas and
 
 ## Tidying the Data
 
-We could just jump right in but it would be more prudent to translate everything we need to human-readable values. This data was designed for using different software, so many of the values are represented numerically with a [key given](https://www.cdc.gov/healthyyouth/data/yrbs/pdf/2017/2017_yrbs_sadc_documentation.pdf). We want to keep only certain demographic and lifestyle columns so we will first collect only those. Specifically, we want to keep all information pertaining to BMI, 
+We could just jump right in but it would be more prudent to translate everything we need to human-readable values. This data was designed for using different software, so many of the values are represented numerically with a [key given](https://www.cdc.gov/healthyyouth/data/yrbs/pdf/2017/2017_yrbs_sadc_documentation.pdf). We want to keep only certain demographic and lifestyle columns so we will first collect only those. Specifically, we want to keep all information pertaining to BMI, race, sex, and behavior questions relating to diet and exercise that have been present in most of the data.
 
 ## Looking for Trends
 
@@ -33,7 +48,7 @@ To make things easier to visualize, we will present a [violin plot](https://en.w
 
 _Code_
 
-I would like to run a simple cubic regression on the data — this will look for the best cubic polynomial that fits the data. (Specifically, the cubic polynomial that will fit the data with the minimal least–squares error.) This is just to look for any possible trends over time.
+We would like to run a simple cubic regression on the data — this will look for the best cubic polynomial that fits the data. (Specifically, the cubic polynomial that will fit the data with the minimal least–squares error.) This is just to look for any possible trends over time.
 
 _Code_
 
@@ -45,7 +60,11 @@ We can see from this most states also have an upward trend, though to varying de
 
 _Code_
 
-Let's try and find what may be causing this overall upward trend in BMI: we can look at questions about diet and exercise and see how they changed
+To try and see what might be causing the upward trend, we want to look at the behavior questions over time. To do this we will create a function that takes in a question name, calculates the percentage of students who answered affirmative, and return the years and percentages. We can thus graph the percentage of students who drank milk daily, ate vegetables daily, drank soda daily, and who ate breakfast daily.
+
+_Code_
+
+There appears to be a downwards trend vegetable and milk consumption, but also a similar trend in soda consumption. Perhaps wit would be more useful to create a model that predicted BMI based on these variables. That might give us a better sense of which behaviors are more relevant.
 
 ## Developing a Model
 
@@ -55,7 +74,7 @@ The subset of data that includes the predictor variables and the dependent varia
 
 _Code_
 
-We will be training our model using validation techniques. In order to do so, we will designate 80% of our dataset for training and the remaining 20% as test data. Using the trainning data, we can develop a linear model.
+We will be training our model using validation techniques. In order to do so, we will designate 80% of our dataset for training and the remaining 20% as test data. Using the training data, we can develop a linear model.
 
 _Code_
 
@@ -67,7 +86,7 @@ Plotting the actual values versus our predicted values helps to show the accurac
 
 _Code_
 
-We can go further in visualizing our error with a violin plot of the residuals. It shows that the resdiuals are heavily concentrated with a low magnitude, but are also heavily skewed by the more extreme values.
+We can go further in visualizing our error with a violin plot of the residuals. It shows that the residuals are heavily concentrated with a low magnitude, but are also heavily skewed by the more extreme values.
 
 _Code_
 
