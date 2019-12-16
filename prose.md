@@ -49,11 +49,35 @@ Let's try and find what may be causing this overall upward trend in BMI: we can 
 
 ## Developing a Model
 
+We want to develop a linear model predicting BMI from a number of categorical predictor variables. The predictor variables we will use are:
+
+The subset of data that includes the predictor variables and the dependent variable, BMI, is selected from the dataset. We also drop all of the incomplete data entries, accepting the error from using incomplete data.
+
+_Code_
+
+We will be training our model using validation techniques. In order to do so, we will designate 80% of our dataset for training and the remaining 20% as test data. Using the trainning data, we can develop a linear model.
+
+_Code_
+
+Once we have a model, we will use our testing data set to make predictions of BMI. We can calculate the residual from our predicated values and the actual value of BMI from our test data.
+
+_Code_
+
+Plotting the actual values versus our predicted values helps to show the accuracy of our model. A perfectly accurate model would have a perfectly linear trend with a slope of 1. As you can see from the graph, our model is quite conservative, estimating closer to average. This means that our model loses accuracy with individuals on the more extreme ends of the BMI scale. We have also listed Mean Absolute Error, Mean Squared Error, and Root Mean Squared Error, all of which are metrics to measure the error our model produces.
+
+_Code_
+
+We can go further in visualizing our error with a violin plot of the residuals. It shows that the resdiuals are heavily concentrated with a low magnitude, but are also heavily skewed by the more extreme values.
+
 _Code_
 
 ## 10-Fold Cross Validation
 
+We want to see if we can further strengthen our model by expanding our training methodology. To do so we will implement a 10-Fold Cross Validation with our data. A 10-Fold Cross Validation technique means that we are going to divide the dataset into 10 subsets and run our analysis with each subset as the test data. The results of this are then averaged to find the total accuracy of the model.
+
 _Code_
+
+If we want to change our model to use whether an individual exercises 1 or more day per a week rather than 7 days a week we can redo the previous models.
 
 ## Conclusion
 We found an upward trend in BMI over the years of the survey and we found decreasing trends in question responses such as milk and veggie consumption. In spite of this, we can Though our training model had some accuracy, it appears that these questions alone are not great predictors of a student's BMI.
