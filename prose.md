@@ -1,6 +1,6 @@
 - [ ] ADD THIS TO FINAL PROJECT
 
-# Investigating Weight and Diet in High Schools
+# Investigating Lifestyle and its Impact on BMI of Teenagers
 _Jay Machado and Jeffrey Wong_
 
 ## Background and Motivation
@@ -42,3 +42,13 @@ There appears to be an upward trend in BMI over time, but this could be the resu
 _Code_
 
 We can see from this most states also have an upward trend, though to varying degrees. 
+
+## Developing a Model
+
+_Code_
+
+## 10-Fold Cross Validation
+
+_Code_
+
+## Conclusion
